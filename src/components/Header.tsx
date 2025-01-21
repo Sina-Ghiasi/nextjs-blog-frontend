@@ -19,7 +19,7 @@ const navLinks: NavLinkData[] = [
   },
 ];
 
-function Header() {
+export default function Header() {
   return (
     <header
       className={`z-10 shadow-md bg-inherit mb-10 sticky top-0 transition-all duration-200 border-b border-b-secondary-300 `}
@@ -43,5 +43,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

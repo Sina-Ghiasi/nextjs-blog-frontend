@@ -9,7 +9,7 @@ type NavLinkProps = {
   className?: string;
 };
 
-function NavLink({ path, children, className }: NavLinkProps) {
+export default function NavLink({ path, children, className }: NavLinkProps) {
   const pathname = usePathname();
 
   return (
@@ -22,5 +22,3 @@ function NavLink({ path, children, className }: NavLinkProps) {
     </Link>
   );
 }
-
-export default NavLink;

@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
       <h1 className="font-bold text-center text-2xl md:text-5xl text-secondary-800 my-20">

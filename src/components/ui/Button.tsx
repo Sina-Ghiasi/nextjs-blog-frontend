@@ -16,13 +16,13 @@ const btnType: Record<ButtonVariants, string> = {
   danger: "btn--danger",
 };
 
-const Button: React.FC<ButtonProps> = ({
+export default function Button({
   children,
   onClick,
   variant = "primary",
   className = "",
   ...rest
-}) => {
+}: ButtonProps) {
   return (
     <button
       onClick={onClick}
@@ -32,6 +32,4 @@ const Button: React.FC<ButtonProps> = ({
       {children}
     </button>
   );
-};
-
-export default Button;
+}

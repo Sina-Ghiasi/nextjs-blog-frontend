@@ -1,25 +1,22 @@
-"use client";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function NotFound() {
-  const router = useRouter();
   return (
     <div className="h-screen">
       <div className="container xl:max-w-screen-xl">
         <div className="flex justify-center pt-10">
           <div>
             <h1 className="text-xl font-bold text-secondary-700 mb-8">
-              صفحه ای که دنبالش بودید، پیدا نشد
+              بلاگی که دنبالش بودید، پیدا نشد
             </h1>
-
-            <button
+            <Link
+              href="/blogs/"
               className="flex items-center gap-x-2 text-secondary-500"
-              onClick={() => router.back()}
             >
               <ArrowRightIcon className="w-6 h-6 text-primary-900" />
-              <span> برگشت به صفحه قبلی</span>
-            </button>
+              <span>برگشت به صفحه بلاگ ها</span>
+            </Link>
           </div>
         </div>
       </div>
