@@ -25,7 +25,10 @@
       "@/constants/*": ["constants/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"],
-      "@/services/*": ["services/*"]
+      "@/services/*": ["services/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/reducers/*": ["reducers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

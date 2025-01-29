@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/Header";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 
@@ -6,6 +7,7 @@ export default function NotFound() {
   const router = useRouter();
   return (
     <div className="h-screen">
+      <Header />
       <div className="container xl:max-w-screen-xl">
         <div className="flex justify-center pt-10">
           <div>

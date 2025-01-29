@@ -1,7 +1,7 @@
-import { AuthorType } from "@/types/post";
+import { PostAuthorType } from "@/types/post";
 import Avatar from "../ui/Avatar";
 
-export default function Author({ name, avatarUrl }: AuthorType) {
+export default function Author({ name, avatarUrl }: PostAuthorType) {
   return (
     <div className="flex items-center gap-x-1">
       <Avatar src={avatarUrl} alt={name} />

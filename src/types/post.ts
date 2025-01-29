@@ -1,29 +1,29 @@
-export type AuthorType = {
+export type PostAuthorType = {
   _id: string;
   name: string;
   avatar: string;
   avatarUrl: string;
 };
 
-export type CategoryType = {
+export type PostCategoryType = {
   _id: string;
   title: string;
   slug: string;
 };
 
-export type CommentType = {
+export type PostCommentType = {
   _id: string;
-  user: AuthorType;
+  user: PostAuthorType;
   content: {
     text: string;
   };
   status: number;
   openToComment: boolean;
   createdAt: string;
-  answers: CommentAnswerType[];
+  answers: PostCommentAnswerType[];
 };
 
-export type CommentAnswerType = {
+export type PostCommentAnswerType = {
   _id: string;
   content: {
     text: string;
@@ -31,14 +31,14 @@ export type CommentAnswerType = {
   status: number;
   openToComment: boolean;
   createdAt: string;
-  user: AuthorType;
+  user: PostAuthorType;
 };
 
 export type PostType = {
   _id: string;
   title: string;
   slug: string;
-  category: CategoryType;
+  category: PostCategoryType;
   type: string;
   briefText: string;
   text: string;
@@ -46,7 +46,7 @@ export type PostType = {
   coverImageUrl: string;
   readingTime: number;
   tags: string[];
-  author: AuthorType;
+  author: PostAuthorType;
   related: PostType[];
   createdAt: string;
   updatedAt: string;
@@ -55,6 +55,6 @@ export type PostType = {
   likesCount: number;
   isLiked: boolean;
   isBookmarked: boolean;
-  comments: CommentType[];
+  comments: PostCommentType[];
   commentsCount: number;
 };

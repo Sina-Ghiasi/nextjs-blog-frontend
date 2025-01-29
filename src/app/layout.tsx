@@ -1,15 +1,7 @@
-import type { Metadata } from "next";
 import "@/styles/globals.css";
 import vazirFont from "@/constants/vazirFont";
-import Header from "@/components/Header";
-
-export const metadata: Metadata = {
-  title: {
-    template: "%s | برنامه بلاگ",
-    default: "برنامه بلاگ",
-  },
-  description: "یک برنامه مدیریت بلاگ ساده ولی مدرن با نکست",
-};
+import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 export default function RootLayout({
   children,
@@ -18,9 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirFont.variable} font-sans min-h-screen`}>
-        <Header />
-        <div className="container xl:max-w-screen-xl">{children}</div>
+      <body className={`min-h-screen  ${vazirFont.variable} font-sans `}>
+        <Toaster />
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

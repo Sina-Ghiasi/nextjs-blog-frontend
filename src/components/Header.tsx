@@ -1,3 +1,6 @@
+"use client";
+
+import { useAuth } from "@/hooks/useAuth";
 import NavLink from "./NavLink";
 
 type NavLinkData = {
@@ -20,9 +23,12 @@ const navLinks: NavLinkData[] = [
 ];
 
 export default function Header() {
+  const { user, isLoading } = useAuth();
   return (
     <header
-      className={`z-10 shadow-md bg-inherit mb-10 sticky top-0 transition-all duration-200 border-b border-b-secondary-300 `}
+      className={`z-10 shadow-md bg-inherit mb-10 sticky top-0 transition-all duration-200 border-b border-b-secondary-300 ${
+        isLoading ? "blur-sm opacity-70" : "blur-0 opacity-100"
+      }`}
     >
       <nav className="container xl:max-w-screen-xl">
         <ul className="flex items-center text-secondary-400 justify-between py-2">
@@ -36,7 +42,11 @@ export default function Header() {
             })}
           </div>
           <li>
-            <NavLink path="/signin">ورود</NavLink>
+            {user ? (
+              <NavLink path="/profile">پروفایل</NavLink>
+            ) : (
+              <NavLink path="/signin">ورود</NavLink>
+            )}
           </li>
         </ul>
       </nav>

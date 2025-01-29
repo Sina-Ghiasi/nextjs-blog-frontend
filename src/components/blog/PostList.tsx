@@ -3,11 +3,22 @@ import Link from "next/link";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import Author from "./Author";
 import PostInteractions from "./PostInteractions";
-import { getPostList } from "@/services/postServices";
+import { getPostListApi } from "@/services/postService";
 
 export default async function PostList() {
-  const postList = await getPostList();
-  if (!postList) return null;
+  const data = await getPostListApi();
+  const postList = data?.posts;
+
+  if (!postList) {
+    return (
+      <div className="text-error">
+        پست ها بارگذاری نشدند. لطفاً دوباره تلاش کنید.
+      </div>
+    );
+  }
+  if (postList.length === 0) {
+    return <div>پستی یافت نشد.</div>;
+  }
 
   return (
     <div className="grid grid-cols-12 gap-4">

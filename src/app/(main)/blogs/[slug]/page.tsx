@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/services/postServices";
+import { getPostBySlugApi } from "@/services/postService";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -8,8 +8,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug);
-  return { title: `بلاگ ${post.title}` };
+  const data = await getPostBySlugApi(slug);
+  const post = data?.post;
+
+  return { title: `بلاگ ${post ? post.title : "پیدا نشد"}` };
 }
 
 export default async function SinglePostPage({
@@ -18,7 +20,8 @@ export default async function SinglePostPage({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug);
+  const data = await getPostBySlugApi(slug);
+  const post = data?.post;
 
   if (!post) notFound();
 
