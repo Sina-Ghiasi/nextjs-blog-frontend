@@ -1,24 +1,16 @@
+import { PostType } from "@/types/post";
 import CoverImage from "./CoverImage";
 import Link from "next/link";
-import { ClockIcon } from "@heroicons/react/24/outline";
 import Author from "./Author";
+import { ClockIcon } from "@heroicons/react/24/outline";
 import PostInteractions from "./PostInteractions";
-import { getPostListApi } from "@/services/postService";
 
-export default async function PostList() {
-  const data = await getPostListApi();
-  const postList = data?.posts;
-
-  if (!postList) {
-    return (
-      <div className="text-error">
-        پست ها بارگذاری نشدند. لطفاً دوباره تلاش کنید.
-      </div>
-    );
-  }
-  if (postList.length === 0) {
-    return <div>پستی یافت نشد.</div>;
-  }
+export default async function PostList({
+  postList,
+}: {
+  postList: PostType[] | undefined;
+}) {
+  if (!postList) return null;
 
   return (
     <div className="grid grid-cols-12 gap-4">
@@ -30,7 +22,7 @@ export default async function PostList() {
           <CoverImage {...post} />
           {/* post body */}
           <div>
-            <Link href={`/blogs/${post.slug}`}>
+            <Link href={`/blog/${post.slug}`}>
               <h2 className="mb-4 font-bold text-secondary-700">
                 {post.title}
               </h2>

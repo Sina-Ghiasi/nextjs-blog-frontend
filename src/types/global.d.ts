@@ -28,7 +28,7 @@ export type ApiAuthResponseType = {
     user: UserType;
   };
 };
-export type ApiUserProfileResponse = {
+export type ApiUserProfileResponseType = {
   statusCode: number;
   data: {
     user: UserType;
@@ -44,4 +44,18 @@ export type ApiSignupRequestType = {
   name: string;
   email: string;
   password: string;
+};
+
+export type ApiPostLikeResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+  };
+};
+
+export type ApiPostBookmarkResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+  };
 };

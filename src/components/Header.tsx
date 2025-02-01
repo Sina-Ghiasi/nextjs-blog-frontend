@@ -17,8 +17,8 @@ const navLinks: NavLinkData[] = [
   },
   {
     id: 2,
-    children: "بلاگ ها",
-    path: "/blogs",
+    children: "بلاگ",
+    path: "/blog",
   },
 ];
 

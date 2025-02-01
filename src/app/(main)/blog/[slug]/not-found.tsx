@@ -8,14 +8,14 @@ export default function NotFound() {
         <div className="flex justify-center pt-10">
           <div>
             <h1 className="text-xl font-bold text-secondary-700 mb-8">
-              بلاگی که دنبالش بودید، پیدا نشد
+              پستی که دنبالش بودید، پیدا نشد
             </h1>
             <Link
-              href="/blogs/"
+              href="/blog/"
               className="flex items-center gap-x-2 text-secondary-500"
             >
               <ArrowRightIcon className="w-6 h-6 text-primary-900" />
-              <span>برگشت به صفحه بلاگ ها</span>
+              <span>برگشت به صفحه بلاگ</span>
             </Link>
           </div>
         </div>

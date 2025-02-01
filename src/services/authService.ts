@@ -1,4 +1,7 @@
-import { ApiAuthResponseType, ApiUserProfileResponse } from "@/types/global";
+import {
+  ApiAuthResponseType,
+  ApiUserProfileResponseType,
+} from "@/types/global";
 import http from "./httpService";
 
 export async function signupApi(data: {
@@ -19,6 +22,6 @@ export async function signinApi(data: { email: string; password: string }) {
 
 export async function getUserApi() {
   return http
-    .get<ApiUserProfileResponse>("/user/profile")
+    .get<ApiUserProfileResponseType>("/user/profile")
     .then(({ data }) => data.data);
 }

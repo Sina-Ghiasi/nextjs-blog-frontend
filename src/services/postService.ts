@@ -1,4 +1,9 @@
-import { ApiPostListResponseType, ApiPostResponseType } from "@/types/global";
+import {
+  ApiPostBookmarkResponseType,
+  ApiPostLikeResponseType,
+  ApiPostListResponseType,
+  ApiPostResponseType,
+} from "@/types/global";
 import http from "./httpService";
 
 export async function getPostListApi(queries = "", options = {}) {
@@ -13,4 +18,16 @@ export async function getPostBySlugApi(slug: string) {
     .get<ApiPostResponseType>(`/post/slug/${slug}`)
     .then(({ data }) => data.data)
     .catch(() => null);
+}
+
+export async function likePostApi(postId: string) {
+  return http
+    .post<ApiPostLikeResponseType>(`/post/like/${postId}`)
+    .then(({ data }) => data.data);
+}
+
+export async function bookmarkPostApi(postId: string) {
+  return http
+    .post<ApiPostBookmarkResponseType>(`/post/bookmark/${postId}`)
+    .then(({ data }) => data.data);
 }

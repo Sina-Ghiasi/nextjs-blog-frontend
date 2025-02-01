@@ -8,7 +8,7 @@ import {
 import { getUserApi, signinApi, signupApi } from "@/services/authService";
 import { AuthContextType } from "@/types/auth";
 import { ApiSigninRequestType, ApiSignupRequestType } from "@/types/global";
-import { AxiosError } from "axios";
+import { handleAxiosErrorMessage } from "@/utils/handleErrorMessage";
 import { useRouter } from "next/navigation";
 import { createContext, useEffect, useReducer } from "react";
 import toast from "react-hot-toast";
@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       toast.success(message);
       router.replace("/profile");
     } catch (error) {
-      const errorMessage = handleAuthErrorMessage(error);
+      const errorMessage = handleAxiosErrorMessage(error);
       dispatch({ type: AUTH_ACTIONS.REJECTED, payload: errorMessage });
       toast.error(errorMessage);
     }
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       toast.success(message);
       router.replace("/profile");
     } catch (error) {
-      const errorMessage = handleAuthErrorMessage(error);
+      const errorMessage = handleAxiosErrorMessage(error);
       dispatch({ type: AUTH_ACTIONS.REJECTED, payload: errorMessage });
       toast.error(errorMessage);
     }
@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { user } = await getUserApi();
       dispatch({ type: AUTH_ACTIONS.USER_LOADED, payload: user });
     } catch (error) {
-      const errorMessage = handleAuthErrorMessage(error);
+      const errorMessage = handleAxiosErrorMessage(error);
       dispatch({ type: AUTH_ACTIONS.REJECTED, payload: errorMessage });
     }
   }
@@ -82,14 +82,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function handleAuthErrorMessage(error: unknown): string {
-  if (error instanceof AxiosError) {
-    return (
-      error.response?.data?.message ||
-      "مشکلی در فرایند احراز هویت پیش آمد. لطفاً دوباره تلاش کنید."
-    );
-  }
-  return "مشکلی پیش آمده است. لطفاً لحظاتی بعد دوباره تلاش کنید.";
 }

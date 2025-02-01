@@ -11,15 +11,14 @@ export default function HomePage() {
       <div>
         <p className="text-center text-secondary-500 text-lg leading-loose">
           جایی که قراره بتونی یه اپلیکیشن بلاگ کامل رو مدیریت کنی!
-          <br /> بتونی بلاگ بسازی - کامنت بگذاری و در پنلت همه اتفاقات رو رصد
-          کنی!
+          <br /> بتونی بلاگ کنی - کامنت بگذاری و در پنلت همه اتفاقات رو رصد کنی!
         </p>
         <div className="flex justify-center gap-x-8 w-full mt-10">
-          <Link href="/blogs">
-            <Button variant="outline">مطالعه بلاگ ها</Button>
+          <Link href="/blog">
+            <Button variant="outline">مطالعه پست ها</Button>
           </Link>
           <Link href="/profile">
-            <Button variant="primary">مدیریت بلاگ ها</Button>
+            <Button variant="primary">مدیریت پست ها</Button>
           </Link>
         </div>
       </div>
