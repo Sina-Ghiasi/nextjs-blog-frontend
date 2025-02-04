@@ -59,3 +59,10 @@ export type ApiPostBookmarkResponseType = {
     message: string;
   };
 };
+
+export type ApiAddCommentResponse = {
+  statusCode: number;
+  data: {
+    message: string;
+  };
+};

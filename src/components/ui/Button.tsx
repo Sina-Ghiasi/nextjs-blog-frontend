@@ -2,13 +2,6 @@ import React, { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariants = "primary" | "secondary" | "outline" | "danger";
 
-type ButtonProps = {
-  children: ReactNode;
-  onClick?: () => void;
-  variant?: ButtonVariants;
-  className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
-
 const btnType: Record<ButtonVariants, string> = {
   primary: "btn--primary",
   secondary: "btn--secondary",
@@ -18,11 +11,14 @@ const btnType: Record<ButtonVariants, string> = {
 
 export default function Button({
   children,
-  onClick,
   variant = "primary",
   className = "",
+  onClick,
   ...rest
-}: ButtonProps) {
+}: {
+  children: ReactNode;
+  variant?: ButtonVariants;
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       onClick={onClick}

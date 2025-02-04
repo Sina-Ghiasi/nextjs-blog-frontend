@@ -1,3 +1,5 @@
+import PostCommentList from "@/components/blog/comment/PostCommentList";
+import RelatedPosts from "@/components/blog/RelatedPosts";
 import { getPostBySlugApi } from "@/services/postService";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -41,6 +43,8 @@ export default async function SinglePostPage({
           className="object-cover object-center rounded-lg shadow-lg"
         />
       </div>
+      {post.related.length > 0 && <RelatedPosts postList={post.related} />}
+      <PostCommentList post={post} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Author from "./Author";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import PostInteractions from "./PostInteractions";
+import truncateText from "@/utils/truncateText";
 
 export default async function PostList({
   postList,
@@ -24,7 +25,7 @@ export default async function PostList({
           <div>
             <Link href={`/blog/${post.slug}`}>
               <h2 className="mb-4 font-bold text-secondary-700">
-                {post.title}
+                {truncateText(post.title, 28)}
               </h2>
             </Link>
             {/* post author - reading time */}
