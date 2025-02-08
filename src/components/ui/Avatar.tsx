@@ -5,7 +5,7 @@ export default function Avatar({
   size = 24,
   alt = "avatar",
 }: {
-  src: string;
+  src?: string | null;
   size?: number;
   alt?: string;
 }) {
@@ -15,7 +15,7 @@ export default function Avatar({
       width={size}
       height={size}
       alt={alt}
-      className="rounded-full ring-1 ring-secondary-300 ml-2"
+      className="rounded-full ring-1 ring-secondary-300"
     />
   );
 }

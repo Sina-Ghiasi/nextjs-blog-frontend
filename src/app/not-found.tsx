@@ -1,5 +1,6 @@
 "use client";
-import Header from "@/components/Header";
+
+import Header from "@/components/blog/Header";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 

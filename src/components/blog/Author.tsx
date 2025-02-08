@@ -10,7 +10,7 @@ export default function Author({
   avatarUrl: string;
 }) {
   return (
-    <div className="flex items-center gap-x-1">
+    <div className="flex items-center gap-x-3">
       <Avatar src={avatarUrl} alt={name} />
       <span className="text-xs text-secondary-500">{name}</span>
     </div>

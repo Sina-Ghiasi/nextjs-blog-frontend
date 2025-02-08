@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth } from "@/hooks/useAuth";
-import NavLink from "./NavLink";
+import NavLink from "../ui/NavLink";
 
 type NavLinkData = {
   id: number;

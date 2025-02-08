@@ -1,6 +1,7 @@
 "use server";
 
 import { createCommentApi } from "@/services/commentService";
+import getAuthCookies from "@/utils/getAuthCookies";
 import { handleAxiosErrorMessage } from "@/utils/handleErrorMessage";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
@@ -21,7 +22,7 @@ export async function createComment(
     const cookieStore = await cookies();
     const { message } = await createCommentApi(rawFormData, {
       headers: {
-        Cookie: cookieStore.toString(),
+        Cookie: getAuthCookies(cookieStore),
       },
     });
     revalidatePath("/blogs/[slug]", "page");

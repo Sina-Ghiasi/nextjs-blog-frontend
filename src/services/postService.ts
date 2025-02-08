@@ -5,19 +5,21 @@ import {
   ApiPostResponseType,
 } from "@/types/global";
 import http from "./httpService";
+import { AxiosRequestConfig } from "axios";
 
-export async function getPostListApi(queries = "", options = {}) {
+export async function getPostListApi(
+  config: AxiosRequestConfig,
+  queries: string = ""
+) {
   return http
-    .get<ApiPostListResponseType>(`/post/list?${queries}`, options)
-    .then(({ data }) => data.data)
-    .catch(() => null);
+    .get<ApiPostListResponseType>(`/post/list?${queries}`, config)
+    .then(({ data }) => data.data);
 }
 
 export async function getPostBySlugApi(slug: string) {
   return http
     .get<ApiPostResponseType>(`/post/slug/${slug}`)
-    .then(({ data }) => data.data)
-    .catch(() => null);
+    .then(({ data }) => data.data);
 }
 
 export async function likePostApi(postId: string) {

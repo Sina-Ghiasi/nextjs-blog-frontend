@@ -1,5 +1,6 @@
 import PostList from "@/components/blog/PostList";
 import { getPostListApi } from "@/services/postService";
+import getAuthCookies from "@/utils/getAuthCookies";
 import { toPersianDigits } from "@/utils/numberFormatter";
 import { cookies } from "next/headers";
 import queryString from "query-string";
@@ -17,11 +18,14 @@ export default async function CategoryPage({
   const queries = `categorySlug=${categorySlug}&${searchQuery}`;
   const cookieStore = await cookies();
 
-  const data = await getPostListApi(queries, {
-    headers: {
-      Cookie: cookieStore.toString(),
+  const data = await getPostListApi(
+    {
+      headers: {
+        Cookie: getAuthCookies(cookieStore),
+      },
     },
-  });
+    queries
+  );
 
   const postList = data?.posts;
   const { search } = resolvedSearchParams;

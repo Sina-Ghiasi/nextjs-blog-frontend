@@ -1,8 +1,10 @@
 import {
   ApiAuthResponseType,
+  ApiUserListResponseType,
   ApiUserProfileResponseType,
 } from "@/types/global";
 import http from "./httpService";
+import { AxiosRequestConfig } from "axios";
 
 export async function signupApi(data: {
   name: string;
@@ -23,5 +25,10 @@ export async function signinApi(data: { email: string; password: string }) {
 export async function getUserApi() {
   return http
     .get<ApiUserProfileResponseType>("/user/profile")
+    .then(({ data }) => data.data);
+}
+export async function getUserListApi(config: AxiosRequestConfig) {
+  return http
+    .get<ApiUserListResponseType>("/user/list", config)
     .then(({ data }) => data.data);
 }

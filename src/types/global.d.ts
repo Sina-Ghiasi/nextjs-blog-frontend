@@ -2,25 +2,7 @@ import { CategoryType } from "@/types/category";
 import { PostType } from "@/types/post";
 import { UserType } from "./user";
 
-export type ApiCategoryListResponseType = {
-  status: number;
-  data: { categories: CategoryType[] };
-};
-
-export type ApiPostListResponseType = {
-  statusCode: number;
-  data: {
-    message: string;
-    posts: PostType[];
-    totalPages: number;
-  };
-};
-
-export type ApiPostResponseType = {
-  statusCode: number;
-  data: { post: PostType };
-};
-
+/* ------------------------ Auth and User ------------------------ */
 export type ApiAuthResponseType = {
   statusCode: number;
   data: {
@@ -46,6 +28,27 @@ export type ApiSignupRequestType = {
   password: string;
 };
 
+export type ApiUserListResponseType = {
+  statusCode: number;
+  data: {
+    users: UserType[];
+  };
+};
+
+/* ------------------------ Post ------------------------ */
+export type ApiPostListResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+    posts: PostType[];
+    totalPages: number;
+  };
+};
+
+export type ApiPostResponseType = {
+  statusCode: number;
+  data: { post: PostType };
+};
 export type ApiPostLikeResponseType = {
   statusCode: number;
   data: {
@@ -60,9 +63,24 @@ export type ApiPostBookmarkResponseType = {
   };
 };
 
+/* ------------------------ Category ------------------------ */
+export type ApiCategoryListResponseType = {
+  status: number;
+  data: { categories: CategoryType[] };
+};
+
+/* ------------------------ Comment ------------------------ */
 export type ApiAddCommentResponse = {
   statusCode: number;
   data: {
     message: string;
+  };
+};
+
+export type ApiCommentListResponseType = {
+  statusCode: number;
+  data: {
+    comments: Comment[];
+    commentsCount: number;
   };
 };
