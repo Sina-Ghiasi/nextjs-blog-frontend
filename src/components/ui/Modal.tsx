@@ -45,7 +45,7 @@ export default function Modal({
               </p>
             </div>
             <button onClick={onClose}>
-              <XMarkIcon className="w-5 h-5 text-secondary-500" />
+              <XMarkIcon className="w-5 h-5 text-secondary-500 hover:text-error" />
             </button>
           </div>
           {children}

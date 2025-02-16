@@ -79,6 +79,9 @@
   .textField__input {
     @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200;
   }
+  .selectField__input {
+    @apply w-full py-3 px-4 rounded-xl text-secondary-600 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 appearance-none;
+  }
   .btn {
     @apply px-3 py-3 rounded-xl transition-all duration-300;
   }
@@ -161,10 +164,11 @@ button {
 }
 button:disabled {
   cursor: not-allowed;
-  background-color: rgb(var(--color-secondary-300), 0.5);
-  color: rgb(var(--color-secondary-700), 0.5);
+  background-color: rgb(var(--color-secondary-200) / 0.5);
+  color: rgb(var(--color-secondary-700) / 0.5);
   pointer-events: none;
   box-shadow: none;
+  border: none;
 }
 
 /* input number */

@@ -1,8 +1,8 @@
 import CategoryList from "@/components/blog/CategoryList";
 import { Metadata } from "next";
 import { Suspense } from "react";
-import Loading from "../loading";
 import Search from "@/components/ui/Search";
+import Fallback from "@/components/ui/Fallback";
 
 export const metadata: Metadata = {
   title: "لیست پست ها",
@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <div className="grid grid-cols-12 gap-4 mb-4">
         <div className="col-span-12 md:col-span-3 lg:col-span-2 text-secondary-500 space-y-4">
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Fallback size="mini" />}>
             <CategoryList />
           </Suspense>
         </div>

@@ -9,8 +9,6 @@ import {
 type RHFTextFieldProps<T extends FieldValues> = {
   name: Path<T>;
   label: string;
-  type?: string;
-  dir?: "ltr" | "rtl";
   isRequired?: boolean;
   register: UseFormRegister<T>;
   errors?: FieldErrors<T>;
@@ -43,7 +41,6 @@ export default function RHFTextField<T extends FieldValues>({
       <input
         autoComplete="off"
         type={type}
-        id={name}
         dir={dir}
         className={`textField__input ${
           dir === "ltr" ? "text-left" : "text-right"

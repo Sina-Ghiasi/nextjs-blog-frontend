@@ -63,6 +63,38 @@ export type ApiPostBookmarkResponseType = {
   };
 };
 
+export type ApiCreatePostRequestType = {
+  title: string;
+  briefText: string;
+  text: string;
+  slug: string;
+  readingTime: number;
+  category: string;
+  coverImage?: File;
+};
+
+export type ApiCreatePostResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+    post: PostType;
+  };
+};
+
+export type ApiUpdatePostResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+  };
+};
+
+export type ApiDeletePostResponseType = {
+  statusCode: number;
+  data: {
+    message: string;
+  };
+};
+
 /* ------------------------ Category ------------------------ */
 export type ApiCategoryListResponseType = {
   status: number;

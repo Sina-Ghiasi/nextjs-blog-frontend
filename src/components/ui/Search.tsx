@@ -19,14 +19,14 @@ export default function Search() {
     e.preventDefault();
 
     const newParams = new URLSearchParams(searchParams.toString());
-
+    newParams.set("page", "1");
     if (search.trim()) {
       newParams.set("search", search.trim());
     } else {
       newParams.delete("search");
     }
 
-    router.replace(`${pathname}?${newParams.toString()}`, { scroll: false });
+    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
   }
 
   return (

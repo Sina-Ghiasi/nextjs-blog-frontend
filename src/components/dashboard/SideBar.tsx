@@ -10,12 +10,6 @@ import SideBarNavList from "./SideBarNavList";
 import ButtonIcon from "../ui/ButtonIcon";
 
 export default function SideBar({ onClose }: { onClose?: () => void }) {
-  //   const { logout } = useAuth();
-
-  //   const logoutHandler = async () => {
-  //     await logout;
-  //   };
-
   return (
     <div className="overflow-y-auto flex flex-col p-5 h-screen pt-10 lg:pt-8">
       {/* Sidebar header */}

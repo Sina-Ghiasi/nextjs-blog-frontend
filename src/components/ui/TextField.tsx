@@ -1,39 +1,32 @@
 type TextFieldPropsType = {
+  id: string;
   label: string;
-  name: string;
-  value: string;
-  type?: "text" | "password" | "email" | "number" | "tel";
-  dir?: "ltr" | "rtl";
   isRequired?: boolean;
-  className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 export default function TextField({
-  type = "text",
+  id,
   label,
-  name,
-  value,
+  type = "text",
   dir = "rtl",
-  onChange,
   isRequired,
-  className,
+  className = "",
+  ...rest
 }: TextFieldPropsType) {
   return (
     <div className="textField">
-      <label htmlFor={name} className="text-secondary-600 text-sm">
+      <label htmlFor={id} className="block mb-2 text-secondary-600 text-sm">
         {label}
+        &nbsp;
         {isRequired && <span className="text-error">*</span>}
       </label>
       <input
+        id={id}
         type={type}
-        name={name}
-        id={name}
         dir={dir}
         className={`textField__input ${
           dir === "ltr" ? "text-left" : "text-right"
         } ${className}`}
-        value={value}
-        onChange={onChange}
+        {...rest}
       />
     </div>
   );

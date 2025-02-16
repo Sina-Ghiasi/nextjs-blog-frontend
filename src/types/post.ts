@@ -5,7 +5,7 @@ export type PostType = {
   title: string;
   slug: string;
   category: { _id: string; title: string; slug: string };
-  type: string;
+  type: "free" | "premium";
   briefText: string;
   text: string;
   coverImage: string;

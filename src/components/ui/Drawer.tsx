@@ -20,7 +20,7 @@ export default function Drawer({
         onClick={onClose}
       ></div>
       <div
-        className={`fixed top-0 right-0 w-[250px] h-full transition-transform transform ${
+        className={`fixed top-0 right-0 w-[250px] transition-transform transform ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => {

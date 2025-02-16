@@ -1,15 +1,20 @@
-import { Card } from "@/components/dashboard/Card";
-import { fetchDashboardStats } from "@/lib/data";
+import CardGrid from "@/components/dashboard/CardGrid";
+import PostTable from "@/components/dashboard/post/PostTable";
+import Fallback from "@/components/ui/Fallback";
+import { Suspense } from "react";
 
-export default async function ProfilePage() {
-  const stats = await fetchDashboardStats();
+export default function ProfilePage() {
   return (
     <>
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <Card title="کاربران" count={stats.users} type="users" />
-        <Card title="پست ها" count={stats.posts} type="posts" />
-        <Card title="نظرات" count={stats.comments} type="comments" />
-      </div>
+      <h1 className="text-lg text-secondary-700 mb-6 ">داشبورد</h1>
+      <Suspense fallback={<Fallback size="mini" />}>
+        <CardGrid />
+      </Suspense>
+
+      <h2 className="text-lg text-secondary-700 mb-6 ">آخرین پست ها</h2>
+      <Suspense fallback={<Fallback size="mini" />}>
+        <PostTable query="sort=latest&limit=3" />
+      </Suspense>
     </>
   );
 }

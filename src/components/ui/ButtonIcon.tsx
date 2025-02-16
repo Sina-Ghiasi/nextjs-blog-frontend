@@ -15,7 +15,6 @@ const btnType: Record<VariantType, string> = {
 
 type ButtonIconProps = {
   children: ReactNode;
-  onClick?: () => void;
   className?: string;
   variant: VariantType;
 } & ButtonHTMLAttributes<HTMLButtonElement>;

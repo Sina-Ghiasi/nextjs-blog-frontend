@@ -1,5 +1,5 @@
 import { useFormStatus } from "react-dom";
-import Button from "./Button";
+import Button, { ButtonVariants } from "./Button";
 import MiniSpinner from "./MiniSpinner";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
@@ -9,6 +9,7 @@ export default function SubmitButton({
   ...rest
 }: {
   children: ReactNode;
+  variant?: ButtonVariants;
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   const { pending } = useFormStatus();
 
@@ -16,7 +17,7 @@ export default function SubmitButton({
     <Button
       type="submit"
       disabled={pending}
-      className={`flex items-center justify-center gap-x-4 py-4 ${className}`}
+      className={`flex items-center justify-center gap-x-4 py-3 ${className}`}
       {...rest}
     >
       {children}

@@ -29,7 +29,8 @@
       "@/contexts/*": ["contexts/*"],
       "@/hooks/*": ["hooks/*"],
       "@/reducers/*": ["reducers/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/providers/*": ["providers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

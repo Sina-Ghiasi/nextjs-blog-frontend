@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import vazirFont from "@/constants/vazirFont";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/contexts/AuthContext";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 export default function RootLayout({
   children,
@@ -10,9 +11,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`min-h-screen  ${vazirFont.variable} font-sans `}>
+      <body className={`min-h-screen ${vazirFont.variable} font-sans`}>
         <Toaster />
-        <AuthProvider>{children}</AuthProvider>
+        <ReactQueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
