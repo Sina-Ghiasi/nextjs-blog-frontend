@@ -16,13 +16,15 @@ A dynamic and modern blog frontend built with **Next.js**, **TypeScript**, and *
 
 ## Table of Contents 📑
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
+- [Introduction](#introduction-)
+- [Features](#features-)
+- [Tech Stack](#tech-stack-%EF%B8%8F)
+- [Getting Started](#getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Deployment](#deployment-)
+- [Contributing](#contributing-)
+- [License](#license-)
 - [Contact](#contact)
 
 ## Introduction 🌟
